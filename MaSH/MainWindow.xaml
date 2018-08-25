@@ -1,0 +1,47 @@
+﻿<Window x:Name="frmMain" x:Class="MaSH.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MaSH"
+        mc:Ignorable="d"
+        Title="MaSH - Mark's Startup Helper" Height="451.898" Width="721.818" ResizeMode="NoResize" Loaded="frmMain_Loaded" Icon="MaSH.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="380"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="listApps" HorizontalAlignment="Left" Height="309" Margin="10,10,0,0" VerticalAlignment="Top" Width="235" SelectionChanged="listApps_SelectionChanged" MouseDoubleClick="listApps_MouseDoubleClick" Grid.RowSpan="2"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="10,324,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="btnAdd_Click" Grid.Row="1"/>
+        <Button x:Name="btnEdit" Content="Edit" HorizontalAlignment="Left" Margin="90,324,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="btnEdit_Click" Grid.Row="1"/>
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="170,324,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="btnDelete_Click" Grid.Row="1"/>
+        <Button x:Name="btnUp" Content="Up" HorizontalAlignment="Left" Margin="10,349,0,0" VerticalAlignment="Top" Width="115" Height="20" Click="btnUp_Click" Grid.Row="1"/>
+        <Button x:Name="btnDown" Content="Down" HorizontalAlignment="Left" Margin="130,349,0,0" VerticalAlignment="Top" Width="115" Height="20" Click="btnDown_Click" Grid.Row="1"/>
+        <StackPanel x:Name="panelEditor" HorizontalAlignment="Left" Height="240" Margin="250,10,0,0" VerticalAlignment="Top" Width="448" IsEnabled="False" Grid.RowSpan="2">
+            <Label Content="Application Name"/>
+            <TextBox x:Name="txtAppName" Height="23" TextWrapping="Wrap"/>
+            <Label Content="Execute Command"/>
+            <TextBox x:Name="txtAppCommand" Height="23" TextWrapping="Wrap"/>
+            <Label Content="Parameters"/>
+            <TextBox x:Name="txtAppParams" Height="23" TextWrapping="Wrap"/>
+            <Label Content="Delay (Seconds)"/>
+            <TextBox x:Name="txtAppDelay" Height="23" TextWrapping="Wrap"/>
+            <Grid Height="39">
+                <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" IsDefault="True" Click="btnSave_Click"/>
+                <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="90,10,0,0" VerticalAlignment="Top" Width="75" IsCancel="True" Click="btnCancel_Click"/>
+            </Grid>
+        </StackPanel>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="114" Margin="250,255,0,0" Stroke="Black" VerticalAlignment="Top" Width="448" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="260,263,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="438" Grid.Row="1"><Run Text="Welcome to MaSH.  This tool allows you to define a startup schedule and ensure that "/><Run Text="your apps start in the correct order."/></TextBlock>
+        <Label Content="Version:" HorizontalAlignment="Left" Margin="260,297,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="52" RenderTransformOrigin="-0.998,0.854"/>
+        <Label x:Name="labVersion" Content="0.0.0" HorizontalAlignment="Left" Margin="317,297,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.591,0.681" Grid.Row="1" Height="26" Width="35"/>
+        <Label Content="Built:" HorizontalAlignment="Left" Margin="423,297,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="36"/>
+        <Label x:Name="labBuildDate" Content="Build Date" HorizontalAlignment="Left" Margin="464,297,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="155"/>
+        <Label HorizontalAlignment="Left" Name="labGitHub" Content="https://www.github.com/tip2tail/MaSH" Foreground="#FF2272FF" Cursor="Hand" MouseLeftButtonUp="labGitHub_MouseLeftButtonUp" Grid.Row="1" Width="215" Margin="260,328,0,25" />
+        <Button x:Name="btnTestExecute" Content="Test Run" HorizontalAlignment="Left" Margin="623,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.043,0.427" Click="btnTestExecute_Click"/>
+        <RadioButton x:Name="radYes" Content="Schedule Enabled" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Checked="radYes_Checked"/>
+        <RadioButton x:Name="radNo" Content="Schedule Disabled" HorizontalAlignment="Left" Margin="128,10,0,0" Grid.Row="2" VerticalAlignment="Top" Checked="radNo_Checked"/>
+
+    </Grid>
+</Window>
