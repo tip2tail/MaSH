@@ -9,6 +9,7 @@ namespace MaSH
     {
 
         private static LogWindow logWin;
+        private static Logging logging = new Logging();
 
         public async static void Go(bool testMode = false)
         {
@@ -22,7 +23,7 @@ namespace MaSH
             if (testMode)
             {
                 Log("=== TEST MODE ===");
-                Log("=== Nothing will be executed ===");
+                Log("=== Nothing will be executed unless in Debug Mode ===");
             }
 
             await Task.Delay(1000);
@@ -42,9 +43,10 @@ namespace MaSH
                 Log("Command: " + app.Command);
                 Log("Parameters: " + app.Params);
                 Log("Launching...");
-                if (!testMode)
+                if (!testMode || Debugger.IsAttached)
                 {
-                    Process.Start(startInfo);
+                    var proc = Process.Start(startInfo);
+                    Log("New PID: " + proc.Id);
                 }
 
                 Log("Sleep for " + app.Delay + " second(s)");
@@ -63,8 +65,14 @@ namespace MaSH
 
         private static void Log(string message)
         {
+            if (Settings.Default.DebugLogging)
+            {
+                logging.Log(Logging.LogClass.Debug, message);
+            }
+
             message = string.Format("{0}: {1}", DateTime.Now.ToLongTimeString(), message);
-            logWin.listLog.Items.Insert(0, message);
+            logWin.listLog.Items.Add(message);
+            logWin.listLog.ScrollToBottom();
         }
 
     }
