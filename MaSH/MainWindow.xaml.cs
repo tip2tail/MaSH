@@ -1,4 +1,5 @@
 ﻿using MaSH.Properties;
+using Microsoft.Win32;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -312,6 +313,32 @@ namespace MaSH
             Settings.Default.Enabled = true;
             Settings.Default.Save();
             StartupWithWindows();
+        }
+
+        private void btnBrowse_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                txtAppCommand.Text = openFileDialog.FileName;
+            }
+        }
+
+        private void cbLogging_Click(object sender, RoutedEventArgs e)
+        {
+            Settings.Default.DebugLogging = (cbLogging.IsChecked is null ? false : (bool)cbLogging.IsChecked);
+            Settings.Default.Save();
+        }
+
+        private void btnViewLogs_Click(object sender, RoutedEventArgs e)
+        {
+            var logPath = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                AppDomain.CurrentDomain.FriendlyName,
+                "logs"
+            );
+            Directory.CreateDirectory(logPath);
+            Process.Start(logPath);
         }
     }
 }

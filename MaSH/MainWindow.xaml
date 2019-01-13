@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MaSH"
         mc:Ignorable="d"
         Title="MaSH - Mark's Startup Helper" Height="451.898" Width="721.818" ResizeMode="NoResize" Loaded="frmMain_Loaded" Icon="MaSH.ico">
-    <Grid>
+    <Grid Margin="0,-2,0,2">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="380"/>
@@ -22,7 +22,10 @@
             <Label Content="Application Name"/>
             <TextBox x:Name="txtAppName" Height="23" TextWrapping="Wrap"/>
             <Label Content="Execute Command"/>
-            <TextBox x:Name="txtAppCommand" Height="23" TextWrapping="Wrap"/>
+            <Grid Height="23">
+                <TextBox x:Name="txtAppCommand" Height="23" TextWrapping="Wrap" Margin="0,0,80,0"/>
+                <Button x:Name="btnBrowse" Content="Browse" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" IsCancel="True" Click="btnBrowse_Click" Margin="373,0,0,0" Height="23"/>
+            </Grid>
             <Label Content="Parameters"/>
             <TextBox x:Name="txtAppParams" Height="23" TextWrapping="Wrap"/>
             <Label Content="Delay (Seconds)"/>
@@ -39,9 +42,11 @@
         <Label Content="Built:" HorizontalAlignment="Left" Margin="423,297,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="36"/>
         <Label x:Name="labBuildDate" Content="Build Date" HorizontalAlignment="Left" Margin="464,297,0,0" VerticalAlignment="Top" Grid.Row="1" Height="26" Width="155"/>
         <Label HorizontalAlignment="Left" Name="labGitHub" Content="https://www.github.com/tip2tail/MaSH" Foreground="#FF2272FF" Cursor="Hand" MouseLeftButtonUp="labGitHub_MouseLeftButtonUp" Grid.Row="1" Width="215" Margin="260,328,0,25" />
-        <Button x:Name="btnTestExecute" Content="Test Run" HorizontalAlignment="Left" Margin="623,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.043,0.427" Click="btnTestExecute_Click"/>
+        <Button x:Name="btnTestExecute" Content="Test Run" HorizontalAlignment="Left" Margin="623,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.043,0.427" Click="btnTestExecute_Click"/>
         <RadioButton x:Name="radYes" Content="Schedule Enabled" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Checked="radYes_Checked"/>
         <RadioButton x:Name="radNo" Content="Schedule Disabled" HorizontalAlignment="Left" Margin="128,10,0,0" Grid.Row="2" VerticalAlignment="Top" Checked="radNo_Checked"/>
+        <CheckBox x:Name="cbLogging" Content="Enable Logging" HorizontalAlignment="Left" Margin="355,10,0,0" Grid.Row="2" VerticalAlignment="Top" Height="20" Width="105" Click="cbLogging_Click"/>
+        <Button x:Name="btnViewLogs" Content="View Logs" HorizontalAlignment="Left" Margin="465,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" Click="btnViewLogs_Click"/>
 
     </Grid>
 </Window>
