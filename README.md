@@ -4,5 +4,5 @@ Mark's Startup Helper is a small tool I wrote to schedule the startup of various
 ## License
 Released under MIT license.
 
-## Found a bag?
-Always welcome some contributions - log a PR and I will review!
+## Found a bug?
+I will always welcome contributions - please log an issue.  Or even better: fix the bug, log a PR and I will review!
