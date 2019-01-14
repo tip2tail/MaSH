@@ -2,8 +2,8 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "MaSH"
-#define MyAppVersion "1.1.0"
-#define MyAppPublisher "tip2tail Ltd"
+#define MyAppVersion "1.2.0"
+#define MyAppPublisher "tip2tail"
 #define MyAppURL "https://www.tip2tail.scot/"
 #define MyAppExeName "MaSH.exe"
 
